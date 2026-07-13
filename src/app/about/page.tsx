@@ -3,6 +3,8 @@ import { getPageBySlug } from "@/lib/api";
 import RichTextRenderer from "@/components/RichTextRenderer";
 import styles from "./page.module.css";
 
+export const revalidate = 60;
+
 export default async function AboutPage() {
   const page = await getPageBySlug("about");
 

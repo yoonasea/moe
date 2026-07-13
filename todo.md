@@ -61,11 +61,11 @@
 
 ## Phase 5: Data Fetching Strategy
 
-- [ ] Use **Server Components** for primary data fetching (SSR/SSG)
-- [ ] Add `generateStaticParams` for news detail pages (static generation)
-- [ ] Add appropriate caching (`revalidate` or `cache` options)
-- [ ] Handle loading states (suspense boundaries)
-- [ ] Handle errors and empty states gracefully
+- [x] Use **Server Components** for primary data fetching (SSR/SSG)
+- [x] Add `generateStaticParams` for news detail pages (static generation)
+- [x] Add appropriate caching (`revalidate` or `cache` options)
+- [x] Handle loading states (suspense boundaries)
+- [x] Handle errors and empty states gracefully
 
 ## Phase 6: Testing
 
