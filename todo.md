@@ -6,9 +6,9 @@
 
 ## Phase 1: Project Scaffolding
 
-- [ ] Initialize Next.js project with TypeScript and App Router
-- [ ] Configure ESLint, Prettier, and path aliases (`@/`)
-- [ ] Set up project folder structure:
+- [x] Initialize Next.js project with TypeScript and App Router
+- [x] Configure ESLint, Prettier, and path aliases (`@/`)
+- [x] Set up project folder structure:
   ```
   src/
     app/          (routes)
