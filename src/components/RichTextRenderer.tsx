@@ -1,12 +1,13 @@
+import ReactMarkdown from "react-markdown";
+
 interface Props {
-  html: string;
+  content: string;
 }
 
-export default function RichTextRenderer({ html }: Props) {
+export default function RichTextRenderer({ content }: Props) {
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: html }}
-      role="article"
-    />
+    <div role="article">
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </div>
   );
 }

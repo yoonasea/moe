@@ -13,7 +13,7 @@ export default async function AboutPage() {
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>{page.title}</h1>
-      <RichTextRenderer html={page.body} />
+      <RichTextRenderer content={page.body} />
     </div>
   );
 }

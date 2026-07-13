@@ -40,7 +40,7 @@ export default async function NewsDetailPage({
         alt={article.alt}
         className={styles.image}
       />
-      <RichTextRenderer html={article.body} />
+      <RichTextRenderer content={article.body} />
     </article>
   );
 }
