@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { NewsArticle } from "@/lib/types";
 import styles from "./NewsCard.module.css";
 
@@ -15,12 +16,15 @@ export default function NewsCard({ article }: Props) {
 
   return (
     <article className={styles.card}>
-      <img
-        src={article.image}
-        alt={article.alt}
-        className={styles.image}
-        loading="lazy"
-      />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={article.image}
+          alt={article.alt}
+          fill
+          className={styles.image}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+      </div>
       <div className={styles.body}>
         <div className={styles.meta}>
           <span className={styles.category}>{article.category.name}</span>

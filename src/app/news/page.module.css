@@ -9,3 +9,9 @@
   color: #003d7a;
   margin-bottom: 1.5rem;
 }
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 1.35rem;
+  }
+}

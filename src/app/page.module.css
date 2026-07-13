@@ -9,3 +9,13 @@
   margin-bottom: 1.5rem;
   color: #003d7a;
 }
+
+@media (max-width: 640px) {
+  .teaser {
+    margin: 2rem auto;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+  }
+}

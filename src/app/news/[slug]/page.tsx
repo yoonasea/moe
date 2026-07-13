@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getNewsBySlug, getAllNewsSlugs } from "@/lib/api";
+import Image from "next/image";
 import RichTextRenderer from "@/components/RichTextRenderer";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -35,11 +36,15 @@ export default async function NewsDetailPage({
         <span className={styles.category}>{article.category.name}</span>
         <time dateTime={article.publishDate}>{date}</time>
       </div>
-      <img
-        src={article.image}
-        alt={article.alt}
-        className={styles.image}
-      />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={article.image}
+          alt={article.alt}
+          fill
+          className={styles.image}
+          sizes="(max-width: 768px) 100vw, 768px"
+        />
+      </div>
       <RichTextRenderer content={article.body} />
     </article>
   );

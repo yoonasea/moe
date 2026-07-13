@@ -85,13 +85,13 @@
 
 ## Phase 7: Performance & Accessibility
 
-- [ ] Audit semantic HTML structure
-- [ ] Add alt text to all images
-- [ ] Add ARIA labels to interactive elements (pagination, filters)
-- [ ] Test keyboard navigation
-- [ ] Optimize images (Next.js `Image` component)
-- [ ] Add responsive styling (mobile breakpoint)
-- [ ] Run Lighthouse audit
+- [x] Audit semantic HTML structure
+- [x] Add alt text to all images
+- [x] Add ARIA labels to interactive elements (pagination, filters)
+- [x] Test keyboard navigation
+- [x] Optimize images (Next.js `Image` component)
+- [x] Add responsive styling (mobile breakpoint)
+- [ ] Run Lighthouse audit (manual)
 
 ## Phase 8: README & Documentation
 

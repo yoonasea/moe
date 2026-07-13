@@ -29,7 +29,7 @@
     "body": "The Minister for Education, Mr Chan Chun Sing, delivered a keynote address at the Global Education Forum in Helsinki, where he shared Singapore's strategic approach to integrating Artificial Intelligence into the education system.\n\nIn his speech, Minister Chan emphasised the importance of preparing students for a future where AI will be ubiquitous. He outlined Singapore's balanced approach, which focuses on leveraging AI to enhance teaching and learning while also teaching students about the ethical implications of AI.\n\n\"We must equip our students not just with the skills to use AI, but with the wisdom to use it responsibly,\" said Minister Chan. \"Our goal is to create an education system that is both technologically advanced and deeply human-centric.\"\n\nThe Minister also highlighted Singapore's commitment to lifelong learning, noting that SkillsFuture will continue to be a key pillar of Singapore's education strategy.",
     "publishDate": "2025-11-20T14:00:00.000Z",
     "category": { "id": "cat-3", "name": "Speeches", "slug": "speeches" },
-    "image": "/images/images2.jpg",
+    "image": "/images/images1.jpg",
     "alt": "Minister speaking at a podium at an international conference"
   },
   {
@@ -40,7 +40,7 @@
     "body": "The Ministry of Education has announced that digital literacy will become a core component of the primary school curriculum starting from the 2027 academic year. Students from Primary 1 will begin learning fundamental digital skills including typing, online safety, and basic coding.\n\nThe new curriculum framework has been developed in consultation with educators, technology experts, and child development specialists. It is designed to be age-appropriate and progressively builds on skills from primary through secondary education.\n\n\"In today's digital age, basic digital literacy is as essential as reading, writing, and arithmetic,\" said the Permanent Secretary for Education. \"This initiative ensures that our students are prepared for a digital future from the very start of their educational journey.\"",
     "publishDate": "2025-11-15T09:00:00.000Z",
     "category": { "id": "cat-2", "name": "Announcements", "slug": "announcements" },
-    "image": "/images/image.webp",
+    "image": "/images/images2.jpg",
     "alt": "Young children learning on tablets in a classroom"
   },
   {
@@ -51,7 +51,7 @@
     "body": "The Ministry of Education has launched a new Specialist Diploma in Special Needs Education to train teachers in supporting students with diverse learning needs. The programme will be offered in partnership with the National Institute of Education.\n\nThis initiative is part of MOE's commitment to inclusive education, ensuring that all students, regardless of their learning needs, receive quality education in an environment that supports their growth.\n\nThe programme covers areas such as understanding different learning disabilities, designing inclusive lesson plans, and using assistive technology in the classroom.",
     "publishDate": "2025-11-08T11:00:00.000Z",
     "category": { "id": "cat-1", "name": "Press Releases", "slug": "press-releases" },
-    "image": "/images/images.jpg",
+    "image": "/images/image.webp",
     "alt": "Teachers in a training workshop"
   },
   {
@@ -62,7 +62,7 @@
     "body": "Singapore has achieved the top ranking in the International Digital Literacy Index (IDLI) 2025, which measures digital skills proficiency among 15-24 year olds across 50 countries. The index assesses competencies including information literacy, digital communication, content creation, and online safety.\n\nThis achievement underscores the success of Singapore's comprehensive approach to digital education, which integrates technology across the curriculum from primary school through to tertiary education.",
     "publishDate": "2025-10-30T07:30:00.000Z",
     "category": { "id": "cat-1", "name": "Press Releases", "slug": "press-releases" },
-    "image": "/images/images2.jpg",
+    "image": "/images/images.jpg",
     "alt": "Youth working on laptops in a modern classroom"
   },
   {
@@ -73,7 +73,7 @@
     "body": "The Ministry of Education has announced a S$500 top-up in SkillsFuture Credits for all Singaporeans aged 40 and above. The top-up is part of the government's ongoing efforts to support mid-career workers in adapting to changes in the economy.\n\nThe enhanced credits can be used for a wide range of training programmes, including courses in artificial intelligence, green economy skills, and healthcare sectors.",
     "publishDate": "2025-10-22T08:00:00.000Z",
     "category": { "id": "cat-2", "name": "Announcements", "slug": "announcements" },
-    "image": "/images/image.webp",
+    "image": "/images/images1.jpg",
     "alt": "Adult learners in a classroom setting"
   },
   {
@@ -84,7 +84,7 @@
     "body": "Minister for Education Mr Chan Chun Sing delivered an inspiring speech at the Appointment Ceremony for new school principals, highlighting the critical role that school leaders play in shaping the next generation.\n\n\"As principals, you are not just administrators of schools. You are the architects of learning environments where our children discover their passions, develop their character, and build their futures,\" said Minister Chan.",
     "publishDate": "2025-10-15T15:00:00.000Z",
     "category": { "id": "cat-3", "name": "Speeches", "slug": "speeches" },
-    "image": "/images/images.jpg",
+    "image": "/images/images2.jpg",
     "alt": "Minister with newly appointed school principals"
   },
   {
@@ -95,7 +95,7 @@
     "body": "The Ministry of Education has partnered with leading technology companies to establish AI Learning Labs in 20 secondary schools across Singapore. The labs will provide students with hands-on experience in AI technologies, including machine learning, natural language processing, and computer vision.\n\nThe partnership includes curriculum development support, teacher training, and equipment sponsorship. The initiative aims to prepare students for the AI-driven economy and encourage interest in STEM careers.",
     "publishDate": "2025-10-08T10:00:00.000Z",
     "category": { "id": "cat-1", "name": "Press Releases", "slug": "press-releases" },
-    "image": "/images/images2.jpg",
+    "image": "/images/image.webp",
     "alt": "Students working with AI equipment in a lab setting"
   },
   {
@@ -106,7 +106,7 @@
     "body": "The Ministry of Education has announced that registration for the National School Games (NSG) 2026 is now open. This year's edition introduces two new sports categories: esports and obstacle course racing, reflecting evolving student interests.\n\nThe NSG remains a key platform for promoting holistic education through sports, fostering values such as teamwork, resilience, and sportsmanship among students.",
     "publishDate": "2025-10-01T09:00:00.000Z",
     "category": { "id": "cat-2", "name": "Announcements", "slug": "announcements" },
-    "image": "/images/image.webp",
+    "image": "/images/images.jpg",
     "alt": "Students participating in a school sports event"
   }
 ]

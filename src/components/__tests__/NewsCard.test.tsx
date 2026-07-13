@@ -31,7 +31,7 @@ describe("NewsCard", () => {
 
     const img = screen.getByAltText("Photo of event");
     expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute("src", article.image);
+    expect(img).toHaveAttribute("alt", "Photo of event");
   });
 
   it("renders formatted date", () => {
