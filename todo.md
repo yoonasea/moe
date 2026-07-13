@@ -69,19 +69,19 @@
 
 ## Phase 6: Testing
 
-- [ ] Set up Vitest + React Testing Library
-- [ ] Write **unit tests**:
+- [x] Set up Vitest + React Testing Library
+- [x] Write **unit tests**:
   - `NewsCard` renders correctly
   - `Pagination` triggers callbacks
   - `CategoryFilter` calls onChange
   - `HeroSection` renders content
-- [ ] Write **integration tests**:
+- [x] Write **integration tests**:
   - Home page fetches and renders hero + news
   - News listing page fetches and renders articles
   - News detail page renders article content
   - Filtering updates the displayed list
-- [ ] Mock data layer in tests (`vi.mock` or similar)
-- [ ] Aim for ~60-80% coverage on critical logic
+- [x] Mock data layer in tests (`vi.mock` or similar)
+- [x] Aim for ~60-80% coverage on critical logic
 
 ## Phase 7: Performance & Accessibility
 
