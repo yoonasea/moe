@@ -4,6 +4,7 @@ import type { Category, PaginatedResult, NewsArticle } from "@/lib/types";
 import NewsList from "@/components/NewsList";
 import styles from "./page.module.css";
 import NewsControls from "./NewsControls";
+import PaginationWrapper from "./PaginationWrapper";
 
 export default async function NewsPage({
   searchParams,
@@ -24,11 +25,15 @@ export default async function NewsPage({
         <NewsControls
           categories={categories}
           currentCategory={category}
+        />
+      </Suspense>
+      <NewsList articles={data.items} />
+      <Suspense fallback={<div>Loading pagination...</div>}>
+        <PaginationWrapper
           currentPage={page}
           totalPages={data.totalPages}
         />
       </Suspense>
-      <NewsList articles={data.items} />
     </div>
   );
 }
