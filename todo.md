@@ -40,15 +40,15 @@
 
 ## Phase 3: Shared UI Components
 
-- [ ] `Header` (navigation)
-- [ ] `Footer`
-- [ ] `HeroSection` (title, subtitle, CTA, background image)
-- [ ] `NewsCard` (thumbnail, title, date, category, link)
-- [ ] `NewsList` (grid of NewsCards)
-- [ ] `Pagination` (page numbers, prev/next)
-- [ ] `CategoryFilter` (buttons/select for filtering)
-- [ ] `RichTextRenderer` (renders HTML/markdown body safely)
-- [ ] Ensure semantic HTML, alt text, ARIA labels throughout
+- [x] `Header` (navigation)
+- [x] `Footer`
+- [x] `HeroSection` (title, subtitle, CTA, background image)
+- [x] `NewsCard` (thumbnail, title, date, category, link)
+- [x] `NewsList` (grid of NewsCards)
+- [x] `Pagination` (page numbers, prev/next)
+- [x] `CategoryFilter` (buttons/select for filtering)
+- [x] `RichTextRenderer` (renders HTML/markdown body safely)
+- [x] Ensure semantic HTML, alt text, ARIA labels throughout
 
 ## Phase 4: Routes / Pages
 
