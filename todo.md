@@ -19,24 +19,24 @@
 
 ## Phase 2: Data Modelling & Mock Layer
 
-- [ ] Define TypeScript types/interfaces:
+- [x] Define TypeScript types/interfaces:
   - `NewsArticle` (id, title, slug, excerpt, body, publishDate, category, image)
   - `Category` (id, name, slug)
   - `Page` (id, title, slug, body, heroImage)
   - `Hero` (title, subtitle, ctaText, ctaLink, backgroundImage)
-- [ ] Create mock JSON files in `src/data/`:
+- [x] Create mock JSON files in `src/data/`:
   - `hero.json` (hero section content)
   - `news.json` (array of articles)
   - `categories.json` (array of categories)
   - `pages.json` (about page etc.)
-- [ ] Build data-access layer (`src/lib/api.ts`):
+- [x] Build data-access layer (`src/lib/api.ts`):
   - `getHero()`
   - `getLatestNews(count)`
   - `getNewsList(page, category?)`
   - `getNewsBySlug(slug)`
   - `getPageBySlug(slug)`
   - Simulate pagination, filtering, and async delay
-- [ ] Document the Directus schema design (collections, fields, relationships) in a markdown doc or schema diagram — since we skipped Directus, this needs to exist for the deliverable
+- [x] Document the Directus schema design (collections, fields, relationships) in a markdown doc or schema diagram — since we skipped Directus, this needs to exist for the deliverable
 
 ## Phase 3: Shared UI Components
 

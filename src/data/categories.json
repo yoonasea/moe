@@ -1,0 +1,5 @@
+[
+  { "id": "cat-1", "name": "Press Releases", "slug": "press-releases" },
+  { "id": "cat-2", "name": "Announcements", "slug": "announcements" },
+  { "id": "cat-3", "name": "Speeches", "slug": "speeches" }
+]
