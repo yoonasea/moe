@@ -7,6 +7,8 @@
   height: 420px;
   position: relative;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: cardFadeIn 0.5s ease-out both;
+  animation-delay: var(--delay, 0s);
 }
 
 .card:hover {
@@ -79,4 +81,21 @@
   color: #555;
   line-height: 1.5;
   flex: 1;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
 }

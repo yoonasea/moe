@@ -9,6 +9,7 @@
   text-align: center;
   background-size: cover;
   background-position: center;
+  animation: heroFadeIn 0.8s ease-out both;
 }
 
 .overlay {
@@ -30,12 +31,14 @@
   margin-bottom: 1rem;
   line-height: 1.2;
   color: #ffffff;
+  animation: fadeInUp 0.6s ease-out 0s both;
 }
 
 .subtitle {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
 .cta {
@@ -48,11 +51,37 @@
   font-weight: 600;
   font-size: 1rem;
   transition: background 0.2s, color 0.2s;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
 }
 
 .cta:hover {
   background: #fff;
   color: #003d7a;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .title,
+  .subtitle,
+  .cta {
+    animation: none;
+  }
 }
 
 @media (max-width: 640px) {

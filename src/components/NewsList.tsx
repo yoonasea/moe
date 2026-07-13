@@ -13,8 +13,12 @@ export default function NewsList({ articles }: Props) {
 
   return (
     <div className={styles.grid} role="list" aria-label="News articles">
-      {articles.map((article) => (
-        <div role="listitem" key={article.id}>
+      {articles.map((article, index) => (
+        <div
+          role="listitem"
+          key={article.id}
+          style={{ "--delay": `${index * 0.15}s` } as React.CSSProperties}
+        >
           <NewsCard article={article} />
         </div>
       ))}

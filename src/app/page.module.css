@@ -8,6 +8,18 @@
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: #003d7a;
+  animation: headingFadeIn 0.5s ease-out 0.3s both;
+}
+
+@keyframes headingFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heading {
+    animation: none;
+  }
 }
 
 @media (max-width: 640px) {
