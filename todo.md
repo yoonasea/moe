@@ -52,12 +52,12 @@
 
 ## Phase 4: Routes / Pages
 
-- [ ] **Home (`/`)** — Hero section + Latest 3 news items
-- [ ] **News Listing (`/news`)** — Paginated list + category filter
-- [ ] **News Detail (`/news/[slug]`)** — Full article with rich text body
-- [ ] **About (`/about`)** — Generic page rendered from `pages` model
-- [ ] **404 page** — Fallback for unknown routes
-- [ ] Apply consistent layout (Header/Footer wrapping)
+- [x] **Home (`/`)** — Hero section + Latest 3 news items
+- [x] **News Listing (`/news`)** — Paginated list + category filter
+- [x] **News Detail (`/news/[slug]`)** — Full article with rich text body
+- [x] **About (`/about`)** — Generic page rendered from `pages` model
+- [x] **404 page** — Fallback for unknown routes
+- [x] Apply consistent layout (Header/Footer wrapping)
 
 ## Phase 5: Data Fetching Strategy
 
