@@ -1,6 +1,6 @@
 .header {
-  background: #003d7a;
-  color: #fff;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
   padding: 0 2rem;
   height: 64px;
   display: flex;
@@ -9,10 +9,10 @@
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #fff;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  line-height: 0;
 }
 
 .nav {
@@ -22,7 +22,7 @@
 }
 
 .nav a {
-  color: #fff;
+  color: #003d7a;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -36,10 +36,6 @@
 @media (max-width: 640px) {
   .header {
     padding: 0 1rem;
-  }
-
-  .logo {
-    font-size: 1rem;
   }
 
   .nav {
