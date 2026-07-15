@@ -33,13 +33,49 @@ docker compose up -d
    - **Email:** `admin@moe.gov.sg`
    - **Password:** `admin123`
 
-3. **Generate an admin access token:**
+3. **Create 4 collections manually via the Data Studio UI:**
+
+   **hero** (toggle Singleton)
+   | Field | Type | Notes |
+   |---|---|---|
+   | `title` | Input | |
+   | `subtitle` | Input | |
+   | `ctaText` | Input | |
+   | `ctaLink` | Input | |
+   | `backgroundImage` | Input | Text field for image URL |
+
+   **categories**
+   | Field | Type | Notes |
+   |---|---|---|
+   | `name` | Input | |
+   | `slug` | Input | Check "Use as slug" |
+
+   **news**
+   | Field | Type | Notes |
+   |---|---|---|
+   | `title` | Input | |
+   | `slug` | Input | Check "Use as slug" |
+   | `excerpt` | Textarea | |
+   | `body` | WYSIWYG or Textarea | Store markdown content |
+   | `publishDate` | Date | |
+   | `category` | Many-to-One | Related collection: **categories** |
+   | `image` | Input | Text field for image URL |
+   | `alt` | Input | |
+
+   **pages**
+   | Field | Type | Notes |
+   |---|---|---|
+   | `title` | Input | |
+   | `slug` | Input | Check "Use as slug" |
+   | `body` | WYSIWYG or Textarea | Store markdown content |
+
+4. **Generate an admin access token:**
    - Click your **avatar icon** in the bottom-left corner of the sidebar
    - Select **Access Token**
    - Enter a token value (e.g. `moe-admin-token`) and click **Save**
    - Copy the token
 
-4. Create `.env.local` in the project root:
+5. Create `.env.local` in the project root:
 
 ```
 DATA_SOURCE=directus
@@ -47,7 +83,7 @@ DIRECTUS_URL=http://localhost:8055
 DIRECTUS_TOKEN=<your-admin-token>
 ```
 
-5. **Run the seed script** — this creates all collections, fields, and populates data:
+6. **Seed the data** (clears and repopulates all collections):
 
    ```bash
    npx tsx scripts/seed.ts
@@ -55,11 +91,6 @@ DIRECTUS_TOKEN=<your-admin-token>
 
    You should see:
    ```
-   Checking existing schema...
-   Creating hero collection...
-   Creating categories collection...
-   Creating news collection...
-   Creating pages collection...
    Clearing existing data...
    Seeding categories...
    Seeding news articles...
@@ -67,8 +98,6 @@ DIRECTUS_TOKEN=<your-admin-token>
    Seeding hero...
    Seed complete!
    ```
-
-   On subsequent runs, it skips schema creation and only re-seeds data.
 
 7. Run the app:
 
