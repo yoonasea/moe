@@ -3,6 +3,7 @@ import { getCategories, getNewsList } from "@/lib/api";
 import type { Category, PaginatedResult, NewsArticle } from "@/lib/types";
 import NewsList from "@/components/NewsList";
 import styles from "./page.module.css";
+import loadingStyles from "../loading.module.css";
 import NewsControls from "./NewsControls";
 import PaginationWrapper from "./PaginationWrapper";
 
@@ -21,14 +22,14 @@ export default async function NewsPage({
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>News</h1>
-      <Suspense fallback={<div>Loading filters...</div>}>
+      <Suspense fallback={<div className={`${loadingStyles.skeleton} ${loadingStyles.inlineBlock}`} />}>
         <NewsControls
           categories={categories}
           currentCategory={category}
         />
       </Suspense>
       <NewsList articles={data.items} />
-      <Suspense fallback={<div>Loading pagination...</div>}>
+      <Suspense fallback={<div className={`${loadingStyles.skeleton} ${loadingStyles.inlineBlock}`} />}>
         <PaginationWrapper
           currentPage={page}
           totalPages={data.totalPages}

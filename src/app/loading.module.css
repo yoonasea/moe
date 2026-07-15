@@ -1,0 +1,189 @@
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Homepage */
+.hero {
+  height: 60vh;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.heroTitle {
+  width: 60%;
+  height: 2.5rem;
+}
+
+.heroSubtitle {
+  width: 40%;
+  height: 1.125rem;
+}
+
+.heroCta {
+  width: 10rem;
+  height: 2.75rem;
+}
+
+.teaser {
+  max-width: 1024px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.heading {
+  width: 12rem;
+  height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cardImage {
+  height: 180px;
+  border-radius: 8px 8px 0 0;
+}
+
+.cardBody {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.cardMeta {
+  width: 60%;
+  height: 0.8rem;
+}
+
+.cardTitle {
+  width: 90%;
+  height: 1.05rem;
+}
+
+.cardExcerpt {
+  width: 100%;
+  height: 0.9rem;
+}
+
+.cardExcerptShort {
+  width: 70%;
+  height: 0.9rem;
+}
+
+/* News listing */
+.page {
+  max-width: 1024px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.pageHeading {
+  width: 6rem;
+  height: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.filterBar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter {
+  width: 7rem;
+  height: 2.25rem;
+}
+
+/* News detail */
+.detailPage {
+  max-width: 768px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.backLink {
+  width: 8rem;
+  height: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.detailTitle {
+  width: 80%;
+  height: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.detailMeta {
+  width: 12rem;
+  height: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailImage {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.bodyLine {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.bodyLineShort {
+  width: 65%;
+  height: 1rem;
+}
+
+/* Suspense fallbacks */
+.inlineBlock {
+  width: 8rem;
+  height: 2.25rem;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: 50vh;
+    min-height: 280px;
+  }
+
+  .heroTitle {
+    width: 80%;
+    height: 1.5rem;
+  }
+
+  .teaser {
+    margin: 2rem auto;
+  }
+
+  .detailImage {
+    height: 240px;
+  }
+}
