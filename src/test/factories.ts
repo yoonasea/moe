@@ -41,7 +41,6 @@ export function createPage(overrides?: Partial<Page>): Page {
     title: "Test Page",
     slug: "test-page",
     body: "## Heading\n\nSome content.",
-    heroImage: null,
     ...overrides,
   };
 }

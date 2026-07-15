@@ -29,7 +29,6 @@ export interface Page {
   title: string;
   slug: string;
   body: string;
-  heroImage: string | null;
 }
 
 export interface PaginatedResult<T> {

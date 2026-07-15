@@ -12,17 +12,16 @@ This document describes the Directus schema that the mock data layer represents.
 | `subtitle`        | String     | Hero subheading              |
 | `ctaText`         | String     | Call-to-action button label  |
 | `ctaLink`         | String     | Internal route path          |
-| `backgroundImage` | Image      | Full-width background image  |
+| `backgroundImage` | String (URL)| Full-width background image |
 
 ### `pages`
 
-| Field       | Type        | Notes                        |
-| ----------- | ----------- | ---------------------------- |
-| `id`        | UUID        | Primary key                  |
-| `title`     | String      | Page title                   |
-| `slug`      | String (Slug)| URL-friendly identifier     |
-| `body`      | WYSIWYG     | Rich text content            |
-| `heroImage` | Image       | Optional hero image          |
+| Field  | Type         | Notes                        |
+| ------ | ------------ | ---------------------------- |
+| `id`   | UUID         | Primary key                  |
+| `title`| String       | Page title                   |
+| `slug` | String (Slug)| URL-friendly identifier      |
+| `body` | WYSIWYG      | Rich text content            |
 
 ### `categories`
 
@@ -43,7 +42,7 @@ This document describes the Directus schema that the mock data layer represents.
 | `body`       | WYSIWYG     | Full article content         |
 | `publishDate`| Datetime    | Publication date             |
 | `category`   | Many-to-One | FK → `categories.id`         |
-| `image`      | Image       | Hero/thumbnail image         |
+| `image`      | String (URL)| Hero/thumbnail image         |
 | `alt`        | String      | Alt text for image           |
 
 ## Key Relationships
