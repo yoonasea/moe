@@ -1,31 +1,47 @@
-import heroData from "@/data/hero.json";
-import newsData from "@/data/news.json";
-import categoriesData from "@/data/categories.json";
-import pagesData from "@/data/pages.json";
 import type { Hero, NewsArticle, Page, PaginatedResult } from "./types";
+import {
+  mockGetHero,
+  mockGetCategories,
+  mockGetLatestNews,
+  mockGetNewsList,
+  mockGetNewsBySlug,
+  mockGetPageBySlug,
+  mockGetAllNewsSlugs,
+} from "./mock-api";
 
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+const useDirectus = process.env.DATA_SOURCE === "directus";
+
+let directusImpl: typeof import("./directus-api") | null = null;
+
+async function getDirectus() {
+  if (!directusImpl) {
+    directusImpl = await import("./directus-api");
+  }
+  return directusImpl;
 }
 
 export async function getHero(): Promise<Hero> {
-  await delay(100);
-  return heroData as Hero;
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetHero();
+  }
+  return mockGetHero();
 }
 
 export async function getCategories(): Promise<NewsArticle["category"][]> {
-  await delay(50);
-  return categoriesData;
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetCategories();
+  }
+  return mockGetCategories();
 }
 
 export async function getLatestNews(count: number = 3): Promise<NewsArticle[]> {
-  await delay(100);
-  return newsData
-    .sort(
-      (a, b) =>
-        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-    )
-    .slice(0, count);
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetLatestNews(count);
+  }
+  return mockGetLatestNews(count);
 }
 
 export async function getNewsList(
@@ -33,42 +49,35 @@ export async function getNewsList(
   categorySlug?: string,
   perPage: number = 6
 ): Promise<PaginatedResult<NewsArticle>> {
-  await delay(150);
-
-  let filtered = [...newsData];
-
-  if (categorySlug) {
-    filtered = filtered.filter(
-      (article) => article.category.slug === categorySlug
-    );
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetNewsList(page, categorySlug, perPage);
   }
-
-  filtered.sort(
-    (a, b) =>
-      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-  );
-
-  const total = filtered.length;
-  const totalPages = Math.ceil(total / perPage);
-  const start = (page - 1) * perPage;
-  const items = filtered.slice(start, start + perPage);
-
-  return { items, total, page, perPage, totalPages };
+  return mockGetNewsList(page, categorySlug, perPage);
 }
 
 export async function getNewsBySlug(
   slug: string
 ): Promise<NewsArticle | null> {
-  await delay(100);
-  return newsData.find((article) => article.slug === slug) ?? null;
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetNewsBySlug(slug);
+  }
+  return mockGetNewsBySlug(slug);
 }
 
 export async function getPageBySlug(slug: string): Promise<Page | null> {
-  await delay(100);
-  return pagesData.find((page) => page.slug === slug) ?? null;
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetPageBySlug(slug);
+  }
+  return mockGetPageBySlug(slug);
 }
 
 export async function getAllNewsSlugs(): Promise<string[]> {
-  await delay(50);
-  return newsData.map((article) => article.slug);
+  if (useDirectus) {
+    const d = await getDirectus();
+    return d.directusGetAllNewsSlugs();
+  }
+  return mockGetAllNewsSlugs();
 }

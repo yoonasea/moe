@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "encrypted-tbn0.gstatic.com",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8055",
+      },
     ],
   },
 };

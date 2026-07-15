@@ -1,0 +1,16 @@
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - "8055:8055"
+    environment:
+      KEY: "moe-directus-key"
+      SECRET: "moe-directus-secret"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/data/database.db"
+      ADMIN_EMAIL: "admin@moe.gov.sg"
+      ADMIN_PASSWORD: "admin123"
+      PUBLIC_URL: "http://localhost:8055"
+    volumes:
+      - ./directus/data:/directus/data
+      - ./directus/uploads:/directus/uploads

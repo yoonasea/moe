@@ -25,6 +25,10 @@ yarn-error.log*
 # env files
 .env*.local
 
+# directus
+directus/data/
+directus/uploads/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

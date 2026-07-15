@@ -12,6 +12,10 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@directus/sdk": "^23.0.0",
+    "@rolldown/binding-darwin-arm64": "^1.1.5",
+    "dotenv": "^17.4.2",
+    "html-encoding-sniffer": "4.0.0",
     "next": "^15.3.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -24,10 +28,10 @@
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^6.0.3",
-    "@vitest/coverage-v8": "^4.1.10",
-    "jsdom": "^29.1.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/coverage-v8": "^3.2.7",
+    "jsdom": "25.0.1",
     "typescript": "^5.8.3",
-    "vitest": "^4.1.10"
+    "vitest": "^3.2.7"
   }
 }
