@@ -30,55 +30,16 @@ docker compose up -d
 ```
 
 2. Open Directus admin at http://localhost:8055 and log in with:
-   - **Email:** `admin@example.com`
+   - **Email:** `admin@moe.gov.sg`
    - **Password:** `admin123`
 
-3. **Create the Directus schema (collections) via the Data Studio UI** — this is required before seeding:
-
-   ### hero (singleton)
-   Toggle "Singleton" when creating this collection.
-   | Field | Type | Notes |
-   |---|---|---|
-   | `title` | Input | |
-   | `subtitle` | Input | |
-   | `ctaText` | Input | |
-   | `ctaLink` | Input | |
-   | `backgroundImage` | Input | Text field for image URL |
-
-   ### categories (regular)
-   | Field | Type | Notes |
-   |---|---|---|
-   | `name` | Input | |
-   | `slug` | Input | Check "Use as slug" in Advanced tab |
-
-   ### news (regular)
-   | Field | Type | Notes |
-   |---|---|---|
-   | `title` | Input | |
-   | `slug` | Input | Check "Use as slug" in Advanced tab |
-   | `excerpt` | Textarea | |
-   | `body` | WYSIWYG | |
-   | `publishDate` | Date | |
-   | `category` | Many-to-One | Related collection: **categories** |
-   | `image` | Input | Text field for image URL |
-   | `alt` | Input | |
-
-   ### pages (regular)
-   | Field | Type | Notes |
-   |---|---|---|
-   | `title` | Input | |
-   | `slug` | Input | Check "Use as slug" in Advanced tab |
-   | `body` | WYSIWYG | |
-
-   > **Important:** The collections must be created in Directus before running the seed script. The seed script only populates data — it does not create the schema.
-
-4. **Generate an admin access token:**
+3. **Generate an admin access token:**
    - Click your **avatar icon** in the bottom-left corner of the sidebar
    - Select **Access Token**
    - Enter a token value (e.g. `moe-admin-token`) and click **Save**
    - Copy the token
 
-5. Create `.env.local` in the project root:
+4. Create `.env.local` in the project root:
 
 ```
 DATA_SOURCE=directus
@@ -86,7 +47,7 @@ DIRECTUS_URL=http://localhost:8055
 DIRECTUS_TOKEN=<your-admin-token>
 ```
 
-6. **Seed the database with mock data:**
+5. **Run the seed script** — this creates all collections, fields, and populates data:
 
    ```bash
    npx tsx scripts/seed.ts
@@ -94,6 +55,11 @@ DIRECTUS_TOKEN=<your-admin-token>
 
    You should see:
    ```
+   Checking existing schema...
+   Creating hero collection...
+   Creating categories collection...
+   Creating news collection...
+   Creating pages collection...
    Clearing existing data...
    Seeding categories...
    Seeding news articles...
@@ -101,6 +67,8 @@ DIRECTUS_TOKEN=<your-admin-token>
    Seeding hero...
    Seed complete!
    ```
+
+   On subsequent runs, it skips schema creation and only re-seeds data.
 
 7. Run the app:
 
