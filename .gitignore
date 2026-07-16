@@ -29,6 +29,9 @@ yarn-error.log*
 directus/data/
 directus/uploads/
 
+# opencode
+.opencode/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -131,21 +131,21 @@ See [architecture.md](./architecture.md) for detailed architecture notes, includ
 
 ## Directus Screenshots
 
-![alt text](<Screenshot 2026-07-16 at 12.39.44 PM.png>)
+![alt text](screenshots/<Screenshot 2026-07-16 at 12.39.44 PM.png>)
 
-![alt text](<Screenshot 2026-07-16 at 12.42.16 PM.png>)
+![alt text](screenshots/<Screenshot 2026-07-16 at 12.42.16 PM.png>)
 
-![alt text](<Screenshot 2026-07-16 at 12.43.20 PM.png>)
+![alt text](screenshots/<Screenshot 2026-07-16 at 12.43.20 PM.png>)
 
-![alt text](<Screenshot 2026-07-16 at 12.44.43 PM.png>)
+![alt text](screenshots/<Screenshot 2026-07-16 at 12.44.43 PM.png>)
 
-![alt text](<Screenshot 2026-07-16 at 12.45.14 PM.png>)
+![alt text](screenshots/<Screenshot 2026-07-16 at 12.45.14 PM.png>)
 
-![alt text](<Screenshot 2026-07-16 at 12.45.47 PM.png>)
+![alt text](screenshots/<Screenshot 2026-07-16 at 12.45.47 PM.png>)
 
 ## Desktop Screenshots
 
-![alt text](localhost_3000_news.png)
+![alt text](screenshots/localhost_3000_news.png)
 
 ![alt text](<localhost_3000_news (1).png>)
 
