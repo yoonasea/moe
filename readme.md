@@ -1,13 +1,13 @@
-# MOE Corporate Website (Prototype)
+# MOE Website (Prototype)
 
-A prototype corporate website for the Ministry of Education, built with Next.js 15 and Directus CMS.
+A prototype website for the Ministry of Education, built with Next.js 15 and Directus CMS.
 
 ## Tech Stack
 
 - **Next.js 15** (App Router)
 - **React 19** + TypeScript
 - **react-markdown** (rich content rendering)
-- **Directus** (Headless CMS — optional, can use mock data)
+- **Directus**
 - **Vitest** + Testing Library (unit & component tests)
 
 ## Getting Started
@@ -33,7 +33,7 @@ docker compose up -d
    - **Email:** `admin@moe.gov.sg`
    - **Password:** `admin123`
 
-3. **Create 4 collections manually via the Data Studio UI:**
+3. **Create 4 collections manually via the UI:**
 
    **hero** (toggle Singleton)
    | Field | Type | Notes |
@@ -42,23 +42,23 @@ docker compose up -d
    | `subtitle` | Input | |
    | `ctaText` | Input | |
    | `ctaLink` | Input | |
-   | `backgroundImage` | Input | Text field for image URL |
+   | `backgroundImage` | Input | image URL |
 
    **categories**
    | Field | Type | Notes |
    |---|---|---|
    | `name` | Input | |
-   | `slug` | Input | Check "Use as slug" |
+   | `slug` | Input |  |
 
    **news**
    | Field | Type | Notes |
    |---|---|---|
    | `title` | Input | |
-   | `slug` | Input | Check "Use as slug" |
+   | `slug` | Input | |
    | `excerpt` | Textarea | |
-   | `body` | WYSIWYG or Textarea | Store markdown content |
+   | `body` | WYSIWYG | Store markdown content |
    | `publishDate` | Date | |
-   | `category` | Many-to-One | Related collection: **categories** |
+   | `category` | Many-to-One Related collection: **categories** | Related collection: **categories** |
    | `image` | Input | Text field for image URL |
    | `alt` | Input | |
 
@@ -67,13 +67,11 @@ docker compose up -d
    |---|---|---|
    | `title` | Input | |
    | `slug` | Input | Check "Use as slug" |
-   | `body` | WYSIWYG or Textarea | Store markdown content |
+   | `body` | WYSIWYG | Store markdown content |
 
 4. **Generate an admin access token:**
    - Click your **avatar icon** in the bottom-left corner of the sidebar
-   - Select **Access Token**
-   - Enter a token value (e.g. `moe-admin-token`) and click **Save**
-   - Copy the token
+   - Create and copy the access token
 
 5. Create `.env.local` in the project root:
 
@@ -82,6 +80,14 @@ DATA_SOURCE=directus
 DIRECTUS_URL=http://localhost:8055
 DIRECTUS_TOKEN=<your-admin-token>
 ```
+
+| Variable | Default | Description |
+|---|---|---|
+| `DATA_SOURCE` | `mock` | `"mock"` for local JSON, `"directus"` for Directus CMS |
+| `DIRECTUS_URL` | `http://localhost:8055` | Directus instance URL |
+| `DIRECTUS_TOKEN` | — | Static access token for Directus API |
+
+See `.env.example` for a template.
 
 6. **Seed the data** (clears and repopulates all collections):
 
@@ -118,16 +124,6 @@ src/
 ├── scripts/      # Utility scripts (seed.ts)
 └── test/         # Test setup & factories
 ```
-
-## Environment Variables
-
-| Variable | Default | Description |
-|---|---|---|
-| `DATA_SOURCE` | `mock` | `"mock"` for local JSON, `"directus"` for Directus CMS |
-| `DIRECTUS_URL` | `http://localhost:8055` | Directus instance URL |
-| `DIRECTUS_TOKEN` | — | Static access token for Directus API |
-
-See `.env.example` for a template.
 
 ## Architecture
 
