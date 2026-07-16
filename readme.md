@@ -36,38 +36,38 @@ docker compose up -d
 3. **Create 4 collections manually via the UI:**
 
    **hero** (toggle Singleton)
-   | Field | Type | Notes |
-   |---|---|---|
-   | `title` | Input | |
-   | `subtitle` | Input | |
-   | `ctaText` | Input | |
-   | `ctaLink` | Input | |
-   | `backgroundImage` | Input | image URL |
+   | Field | Type |
+   | ------ | ---- |
+   | `title` | Input |
+   | `subtitle` | Input |
+   | `ctaText` | Input |
+   | `ctaLink` | Input |
+   | `backgroundImage` | Input |
 
    **categories**
-   | Field | Type | Notes |
-   |---|---|---|
-   | `name` | Input | |
-   | `slug` | Input |  |
+   | Field | Type |
+   | ------ | ---- |
+   | `name` | Input |
+   | `slug` | Input |
 
    **news**
-   | Field | Type | Notes |
-   |---|---|---|
-   | `title` | Input | |
-   | `slug` | Input | |
-   | `excerpt` | Textarea | |
-   | `body` | WYSIWYG | Store markdown content |
-   | `publishDate` | Date | |
-   | `category` | Many-to-One Related collection: **categories** | Related collection: **categories** |
-   | `image` | Input | Text field for image URL |
-   | `alt` | Input | |
+   | Field | Type |
+   | ------ | ---- |
+   | `title` | Input |
+   | `slug` | Input |
+   | `excerpt` | Textarea |
+   | `body` | WYSIWYG |
+   | `publishDate` | Date |
+   | `category` | Many-to-One → **categories** |
+   | `image` | Input |
+   | `alt` | Input |
 
    **pages**
-   | Field | Type | Notes |
-   |---|---|---|
-   | `title` | Input | |
-   | `slug` | Input | Check "Use as slug" |
-   | `body` | WYSIWYG | Store markdown content |
+   | Field | Type |
+   | ------ | ---- |
+   | `title` | Input |
+   | `slug` | Input |
+   | `body` | WYSIWYG |
 
 4. **Generate an admin access token:**
    - Click your **avatar icon** in the bottom-left corner of the sidebar
