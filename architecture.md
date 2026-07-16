@@ -96,6 +96,7 @@ For Directus input type refer to readme.md
 - **Test coverage** — setting up unit test and integration tests using vitest
 - **Responsive design** — making sure the content flows properly on both desktop and mobile 
 - **Functions** — making sure all apis and pagination works
+- **Accessibility** — aria label, alt text, semnatic
 - **Directus** — setting up directus and creating collections and test data
 
 ### Left out (due to time / scope)
