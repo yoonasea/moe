@@ -21,24 +21,12 @@ export default async function Home() {
 
 - **Zero client data fetching** — Data is fetched during server rendering and fully hydrated HTML is sent to the client.
 - **SEO** — All content is present in the initial HTML response. No client-side waterfalls.
-- **Simpler code** — No loading/error states to manage on the client. Server Components can `throw` or `notFound()` directly.
-- **ISR & SSG support** — The homepage and about page use ISR (`revalidate = 60`) for periodic freshness. News detail pages are pre-built at build time via `generateStaticParams()`.
+- **ISR support** — The homepage and about page use ISR (`revalidate = 60`) for periodic freshness.
 - **Client components only handle interactivity** — `NewsControls` and `PaginationWrapper` are small `"use client"` wrappers that update URL search params via `useRouter()`. They never fetch data.
-
-### Current Data Flow
-
-```
-JSON files (src/data/*.json)
-    → src/lib/api.ts  (async functions with simulated delay)
-    → Server Components (src/app/**/page.tsx)
-    → Client components via props  (src/components/)
-```
 
 ---
 
-## 2. Schema Design
-
-This section documents the Directus schema that the mock data layer represents.
+## 2. Directus Schema Design
 
 ### Collections
 
@@ -58,8 +46,8 @@ This section documents the Directus schema that the mock data layer represents.
 | ------ | ------------- | ---------------------------- |
 | `id`   | UUID          | Primary key                  |
 | `title`| String        | Page title                   |
-| `slug` | String (Slug) | URL-friendly identifier      |
-| `body` | WYSIWYG       | Rich text content            |
+| `slug` | String        | URL-friendly identifier      |
+| `body` | String        | Rich text content            |
 
 #### `categories`
 
@@ -67,7 +55,7 @@ This section documents the Directus schema that the mock data layer represents.
 | ------ | ------------- | ---------------------------- |
 | `id`   | UUID          | Primary key                  |
 | `name` | String        | Display name                 |
-| `slug` | String (Slug) | URL-friendly identifier      |
+| `slug` | String        | URL-friendly identifier      |
 
 #### `news`
 
@@ -75,12 +63,12 @@ This section documents the Directus schema that the mock data layer represents.
 | ------------- | ------------- | ---------------------------- |
 | `id`          | UUID          | Primary key                  |
 | `title`       | String        | Article headline             |
-| `slug`        | String (Slug) | URL-friendly identifier      |
-| `excerpt`     | String        | Short summary (teaser text)  |
-| `body`        | WYSIWYG       | Full article content         |
+| `slug`        | String        | URL-friendly identifier      |
+| `excerpt`     | String        | Short summary                |
+| `body`        | String        | Full article content         |
 | `publishDate` | Datetime      | Publication date             |
 | `category`    | Many-to-One   | FK → `categories.id`         |
-| `image`       | String (URL)  | Hero/thumbnail image         |
+| `image`       | String        | Hero/thumbnail image         |
 | `alt`         | String        | Alt text for image           |
 
 ### Key Relationships
@@ -91,7 +79,7 @@ This section documents the Directus schema that the mock data layer represents.
 ### Rationale
 
 - The singleton `hero` collection simplifies managing a single homepage hero.
-- `categories` is a separate collection so it can be reused for filtering in the API and future features (e.g., category landing pages).
+- `categories` is a separate collection so it can be reused for filtering in the API
 - Using `slug` fields (rather than raw IDs) for URL-based lookups keeps routes clean and user-friendly.
 - `WYSIWYG` for body fields allows content editors to format rich content without HTML knowledge.
 
