@@ -19,7 +19,7 @@ export default async function Home() {
 
 ### Why Server Components?
 
-- **Zero client data fetching** — Data is fetched during server rendering and fully hydrated HTML is sent to the client.
+- Primary data fetching occurs on the server. Client components are only responsible for UI interactions and do not fetch application data.
 - **SEO** — All content is present in the initial HTML response. No client-side waterfalls.
 - **ISR support** — The homepage and about page use ISR (`revalidate = 60`) for periodic freshness.
 - **Client components only handle interactivity** — `NewsControls` and `PaginationWrapper` are small `"use client"` wrappers that update URL search params via `useRouter()`. They never fetch data.
@@ -27,6 +27,8 @@ export default async function Home() {
 ---
 
 ## 2. Directus Schema Design
+
+For Directus input type refer to readme.md
 
 ### Collections
 
@@ -74,7 +76,6 @@ export default async function Home() {
 ### Key Relationships
 
 - **news → categories**: Many-to-One. Each article belongs to one category.
-- **pages**: Standalone collection. No direct relationships.
 
 ### Rationale
 
@@ -108,18 +109,25 @@ export default async function Home() {
 
 Scenario: The morning of national exam results release, with a sudden 100× traffic spike.
 
-- Implement ISR
-   - This is current project workflow, so html will be cache for a configurable period of time.
-- Implement SSG
-   - Not recommended because there might be many articles in database, causing long build time
-   - but if we are going with this, will need to setup Directus webhook to revalidate the cache
-   - can also pair with ISR will help keep data more fresh
-- Implement CDN
-   - Check if cloud/hosting provider have cdn feature, then set an appropriate revalidate time. Revalidate time value depends on whether u expect the data to change frequently or not
-- Implement Redis
-   - If current project tech stack does not have SSR/SSG, can use Redis to do caching of data, to prevent database from getting hit too many times
+- ISR
+   - Preferred for this project.
+   - Pages are generated on demand and cached for a configurable period of time.
+   - Reduces the number of requests to Directus and the database by serving cached HTML.
+   - Directus webhooks can trigger `revalidatePath()` or `revalidateTag()` after editors publish or update content, allowing pages to be regenerated immediately instead of waiting for the next revalidation interval.
+   - Provides a good balance between performance and content freshness for a CMS-driven website.
+- SSG
+   - Suitable only if the number of news articles is relatively small and content changes infrequently.
+   - Large numbers of articles increase build time because every page is generated during the build.
+   - If new articles are published frequently, rebuilding the entire site becomes impractical.
+- CDN
+   - Deploy behind a CDN (e.g. Vercel Edge Network or Cloudflare) so cached HTML, JavaScript, CSS and images are served from edge locations closer to users.
+- Redis
+   - Use Redis to cache expensive API responses or database queries when dynamic rendering is required. This reduces load on Directus and the database but does not replace HTML caching provided by ISR.
 - Skeleton loading
-   - already implemented via loading.tsx, to let user perceive that something is loading, rather than showing a blank page. 
+   - Improves perceived performance by displaying placeholders while streamed content loads.
 - Auto scaling
-   - if possible check if current server supports autoscaling like auto adding more instances during high load
+   - If deployed to a cloud platform, enable horizontal auto scaling so additional application instances are created automatically during periods of high traffic.
+- Image optimisation
+   - Use the next/image component to automatically serve responsive images in modern formats (WebP/AVIF).
+   - Reduces bandwidth usage and improves page load performance.
 
