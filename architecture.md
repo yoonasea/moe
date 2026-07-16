@@ -102,9 +102,12 @@ This section documents the Directus schema that the mock data layer represents.
 ### Prioritised
 
 - **Server rendering by default** — All pages are Server Components, which gives good SEO and performance out of the box.
-- **Clean API abstraction** — `src/lib/api.ts` isolates all data access behind async functions. Switching from JSON to a real API requires no component changes — only the `api.ts` internals.
-- **ISR for freshness** — The homepage and about page revalidate every 60 seconds, balancing performance with content currency.
-- **Test coverage** — API layer, component rendering, and navigation are tested.
+- **Clean Code** clean architecture and databse schema
+- **ISR for freshness** — using ISR for caching content
+- **Test coverage** — setting up unit test and integration tests using vitest
+- **Responsive design** — making sure the content flows properly on both desktop and mobile 
+- **Functions** — making sure all apis and pagination works
+- **Directus** — setting up directus and creating collections and test data
 
 ### Left out (due to time / scope)
 
@@ -117,34 +120,18 @@ This section documents the Directus schema that the mock data layer represents.
 
 Scenario: The morning of national exam results release, with a sudden 100× traffic spike.
 
-### Current Bottlenecks
+- Implement ISR
+   - This is current project workflow, so html will be cache for a configurable period of time.
+- Implement SSG
+   - Not recommended because there might be many articles in database, causing long build time
+   - but if we are going with this, will need to setup Directus webhook to revalidate the cache
+   - can also pair with ISR will help keep data more fresh
+- Implement CDN
+   - Check if cloud/hosting provider have cdn feature, then set an appropriate revalidate time. Revalidate time value depends on whether u expect the data to change frequently or not
+- Implement Redis
+   - If current project tech stack does not have SSR/SSG, can use Redis to do caching of data, to prevent database from getting hit too many times
+- Skeleton loading
+   - already implemented via loading.tsx, to let user perceive that something is loading, rather than showing a blank page. 
+- Auto scaling
+   - if possible check if current server supports autoscaling like auto adding more instances during high load
 
-- **No external cache** — Relies entirely on ISR and browser caching. Repeated page visits still re-execute the Server Component every 60 seconds.
-- **No DB connection pooling** — a real Directus instance would need connection management under load.
-
-### How to Scale
-
-
-2. **Add a Redis caching layer.**
-   Wrap data functions with a cache (e.g., Upstash Redis, Vercel KV):
-
-   ```
-   getHero() → check Redis → miss → fetch Directus → write Redis → return
-   ```
-
-   Cache frequently accessed data (hero, news list, categories) with a TTL of 30–60 seconds. Bust the cache when content is updated via Directus webhooks.
-
-3. **Use a CDN with stale-while-revalidate.**
-   Configure `Cache-Control: public, s-maxage=30, stale-while-revalidate=300` on response headers. The CDN (Vercel Edge, Cloudflare) serves stale content instantly while the fresh page is generated in the background.
-
-4. **Leverage ISR + `generateStaticParams()`.**
-   News detail pages are already statically generated at build time. For exam results, pre-build the most-visited pages and let ISR refresh the rest on demand.
-
-5. **Horizontal auto-scaling.**
-   Deploy on Vercel — it auto-scales to handle traffic bursts. Each instance is stateless, so adding more instances is transparent.
-
-6. **Streaming & Suspense.**
-   Already in place — `loading.tsx` files and `Suspense` boundaries ensure the shell HTML renders immediately while data streams in. Under load, users see a loading state rather than a blank page or timeout.
-
-7. **Fallback & Graceful Degradation.**
-   If Directus is overwhelmed, serve stale cached data. If Redis is down, fall through to Directus. The system should never hard-fail on the user — serve something, even if slightly stale.
