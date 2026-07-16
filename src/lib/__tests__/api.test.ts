@@ -5,7 +5,7 @@ import {
   getNewsList,
   getNewsBySlug,
   getPageBySlug,
-  getAllNewsSlugs,
+
   getCategories,
 } from "../api";
 
@@ -84,10 +84,9 @@ describe("getNewsList", () => {
 
 describe("getNewsBySlug", () => {
   it("returns article for valid slug", async () => {
-    const slugs = await getAllNewsSlugs();
-    const article = await getNewsBySlug(slugs[0]);
+    const article = await getNewsBySlug("national-chinese-reading-competition-2026");
     expect(article).not.toBeNull();
-    expect(article?.slug).toBe(slugs[0]);
+    expect(article?.slug).toBe("national-chinese-reading-competition-2026");
   });
 
   it("returns null for invalid slug", async () => {
@@ -109,12 +108,3 @@ describe("getPageBySlug", () => {
   });
 });
 
-describe("getAllNewsSlugs", () => {
-  it("returns all slugs as strings", async () => {
-    const slugs = await getAllNewsSlugs();
-    expect(slugs.length).toBeGreaterThan(0);
-    for (const slug of slugs) {
-      expect(typeof slug).toBe("string");
-    }
-  });
-});

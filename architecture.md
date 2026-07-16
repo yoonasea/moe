@@ -19,7 +19,7 @@ export default async function Home() {
 
 ### Why Server Components?
 
-- **Zero client data fetching** — No `useEffect`, SWR, or React Query. Data is fetched during server rendering and fully hydrated HTML is sent to the client.
+- **Zero client data fetching** — Data is fetched during server rendering and fully hydrated HTML is sent to the client.
 - **SEO** — All content is present in the initial HTML response. No client-side waterfalls.
 - **Simpler code** — No loading/error states to manage on the client. Server Components can `throw` or `notFound()` directly.
 - **ISR & SSG support** — The homepage and about page use ISR (`revalidate = 60`) for periodic freshness. News detail pages are pre-built at build time via `generateStaticParams()`.
@@ -101,7 +101,6 @@ This section documents the Directus schema that the mock data layer represents.
 
 ### Prioritised
 
-- **Mock-first development** — JSON files replace a real Directus instance, enabling fast iteration without infrastructure.
 - **Server rendering by default** — All pages are Server Components, which gives good SEO and performance out of the box.
 - **Clean API abstraction** — `src/lib/api.ts` isolates all data access behind async functions. Switching from JSON to a real API requires no component changes — only the `api.ts` internals.
 - **ISR for freshness** — The homepage and about page revalidate every 60 seconds, balancing performance with content currency.
@@ -109,13 +108,8 @@ This section documents the Directus schema that the mock data layer represents.
 
 ### Left out (due to time / scope)
 
-- **Real database** — No Directus or PostgreSQL connection. Data is static JSON in memory.
-- **Authentication** — No admin auth, no protected routes.
-- **Search** — No full-text search across news articles.
-- **Image pipeline** — Images are raw external URLs; no next/image optimisation or CDN delivery.
-- **Dedicated caching** — No Redis or external cache; only relies on Next.js ISR and HTTP caching.
-- **Preview mode** — No draft/preview support for content editors.
-- **Dynamic data** — The dataset is static at build time. There is no way for content editors to publish changes without a rebuild.
+- **Middleware** — no rate limiting
+- **Image pipeline** — Images are raw external URLs; no image storage
 
 ---
 
@@ -125,14 +119,11 @@ Scenario: The morning of national exam results release, with a sudden 100× traf
 
 ### Current Bottlenecks
 
-- **JSON in memory** — Each server instance loads all JSON files into RAM. This is fast but doesn't scale horizontally beyond what the process can hold.
 - **No external cache** — Relies entirely on ISR and browser caching. Repeated page visits still re-execute the Server Component every 60 seconds.
-- **No DB connection pooling** — Not an issue now (JSON data), but a real Directus instance would need connection management under load.
+- **No DB connection pooling** — a real Directus instance would need connection management under load.
 
 ### How to Scale
 
-1. **Replace JSON with a real Directus instance + PostgreSQL.**
-   The API abstraction in `src/lib/api.ts` already returns `Promise<Hero>`, `Promise<NewsArticle[]>`, etc. Swapping the implementation to hit Directus REST endpoints is a purely internal change.
 
 2. **Add a Redis caching layer.**
    Wrap data functions with a cache (e.g., Upstash Redis, Vercel KV):

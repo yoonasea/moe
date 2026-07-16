@@ -7,6 +7,8 @@ import loadingStyles from "../loading.module.css";
 import NewsControls from "./NewsControls";
 import PaginationWrapper from "./PaginationWrapper";
 
+export const revalidate = 60;
+
 export default async function NewsPage({
   searchParams,
 }: {

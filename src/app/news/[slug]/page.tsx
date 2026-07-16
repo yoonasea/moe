@@ -1,14 +1,11 @@
 import { notFound } from "next/navigation";
-import { getNewsBySlug, getAllNewsSlugs } from "@/lib/api";
+import { getNewsBySlug } from "@/lib/api";
 import Image from "next/image";
 import RichTextRenderer from "@/components/RichTextRenderer";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export async function generateStaticParams() {
-  const slugs = await getAllNewsSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
+export const revalidate = 60;
 
 export default async function NewsDetailPage({
   params,

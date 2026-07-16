@@ -74,10 +74,4 @@ export async function getPageBySlug(slug: string): Promise<Page | null> {
   return mockGetPageBySlug(slug);
 }
 
-export async function getAllNewsSlugs(): Promise<string[]> {
-  if (useDirectus) {
-    const d = await getDirectus();
-    return d.directusGetAllNewsSlugs();
-  }
-  return mockGetAllNewsSlugs();
-}
+

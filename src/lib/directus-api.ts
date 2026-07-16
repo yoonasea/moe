@@ -114,13 +114,6 @@ export async function directusGetPageBySlug(slug: string): Promise<Page | null> 
   return result.length > 0 ? { id: String(result[0].id), title: result[0].title, slug: result[0].slug, body: result[0].body } : null;
 }
 
-export async function directusGetAllNewsSlugs(): Promise<string[]> {
-  const result = await client.request<{ slug: string }[]>(
-    readItems("news", { fields: ["slug"] })
-  );
-  return result.map((item) => item.slug);
-}
-
 function mapNewsItem(item: DirectusNewsItem): NewsArticle {
   return {
     id: String(item.id),

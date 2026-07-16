@@ -68,7 +68,4 @@ export async function mockGetPageBySlug(slug: string): Promise<Page | null> {
   return pagesData.find((page) => page.slug === slug) ?? null;
 }
 
-export async function mockGetAllNewsSlugs(): Promise<string[]> {
-  await delay(50);
-  return newsData.map((article) => article.slug);
-}
+
