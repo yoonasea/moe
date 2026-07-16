@@ -143,4 +143,18 @@ See [architecture.md](./architecture.md) for detailed architecture notes, includ
 
 ![alt text](<Screenshot 2026-07-16 at 12.45.47 PM.png>)
 
-## App Screenshots
+## Desktop Screenshots
+
+![alt text](localhost_3000_news.png)
+
+![alt text](<localhost_3000_news (1).png>)
+
+![alt text](<localhost_3000_news (2).png>)
+
+## Mobile Screenshots
+
+![alt text](<localhost_3000_news(iPhone 14 Pro Max).png>)
+
+![alt text](<localhost_3000_news(iPhone SE).png>)
+
+![alt text](<localhost_3000_(iPhone 14 Pro Max).png>)
