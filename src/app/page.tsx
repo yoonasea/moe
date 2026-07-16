@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getHero, getLatestNews } from "@/lib/api";
 import HeroSection from "@/components/HeroSection";
 import NewsList from "@/components/NewsList";
@@ -15,7 +16,12 @@ export default async function Home() {
     <>
       <HeroSection hero={hero} />
       <section className={styles.teaser}>
-        <h2 className={styles.heading}>Latest News</h2>
+        <div className={styles.headerRow}>
+          <h2 className={styles.heading}>Latest News</h2>
+          <Link href="/news" className={styles.viewMore}>
+            View More &rarr;
+          </Link>
+        </div>
         <NewsList articles={latestNews} />
       </section>
     </>
