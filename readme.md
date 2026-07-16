@@ -128,3 +128,19 @@ src/
 ## Architecture
 
 See [architecture.md](./architecture.md) for detailed architecture notes, including data fetching strategy, schema design, trade-offs, and scaling considerations.
+
+## Directus Screenshots
+
+![alt text](<Screenshot 2026-07-16 at 12.39.44 PM.png>)
+
+![alt text](<Screenshot 2026-07-16 at 12.42.16 PM.png>)
+
+![alt text](<Screenshot 2026-07-16 at 12.43.20 PM.png>)
+
+![alt text](<Screenshot 2026-07-16 at 12.44.43 PM.png>)
+
+![alt text](<Screenshot 2026-07-16 at 12.45.14 PM.png>)
+
+![alt text](<Screenshot 2026-07-16 at 12.45.47 PM.png>)
+
+## App Screenshots
