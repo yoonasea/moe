@@ -131,30 +131,30 @@ See [architecture.md](./architecture.md) for detailed architecture notes, includ
 
 ## Directus Screenshots
 
-![alt text](screenshots/<Screenshot 2026-07-16 at 12.39.44 PM.png>)
+![alt text](screenshots/image1.png)
 
-![alt text](screenshots/<Screenshot 2026-07-16 at 12.42.16 PM.png>)
+![alt text](screenshots/image2.png)
 
-![alt text](screenshots/<Screenshot 2026-07-16 at 12.43.20 PM.png>)
+![alt text](screenshots/image3.png)
 
-![alt text](screenshots/<Screenshot 2026-07-16 at 12.44.43 PM.png>)
+![alt text](screenshots/image4.png)
 
-![alt text](screenshots/<Screenshot 2026-07-16 at 12.45.14 PM.png>)
+![alt text](screenshots/image5.png)
 
-![alt text](screenshots/<Screenshot 2026-07-16 at 12.45.47 PM.png>)
+![alt text](screenshots/image6.png)
 
 ## Desktop Screenshots
 
-![alt text](screenshots/localhost_3000_news.png)
+![alt text](screenshots/image7.png)
 
-![alt text](<localhost_3000_news (1).png>)
+![alt text](screenshots/image8.png)
 
-![alt text](<localhost_3000_news (2).png>)
+![alt text](screenshots/image9.png)
 
 ## Mobile Screenshots
 
-![alt text](<localhost_3000_news(iPhone 14 Pro Max).png>)
+![alt text](screenshots/image10.png)
 
-![alt text](<localhost_3000_news(iPhone SE).png>)
+![alt text](screenshots/image11.png)
 
-![alt text](<localhost_3000_(iPhone 14 Pro Max).png>)
+![alt text](screenshots/image12.png)
